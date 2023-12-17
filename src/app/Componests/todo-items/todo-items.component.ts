@@ -7,7 +7,10 @@ import { Todo } from 'src/app/Todo';
 })
 export class TodoItemsComponent implements OnInit {
   @Input() todo!: Todo; 
+  @Input() i!: number;
   @Output() todoDelete:EventEmitter<Todo> = new EventEmitter();
+  @Output() todoCheakbox:EventEmitter<Todo> = new EventEmitter();
+  
   constructor() { }
   ngOnInit(): void {
   }
@@ -16,4 +19,9 @@ export class TodoItemsComponent implements OnInit {
     // console.log('ocClick has beeen triggred.')
 
   }
+  onCheakboxClick(newtodo:Todo){
+    this.todoCheakbox.emit(newtodo);
+    console.log(newtodo);
+  }
+  
 }

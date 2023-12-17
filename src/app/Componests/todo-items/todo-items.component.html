@@ -1,5 +1,9 @@
 <div class="my-3">
-    <h5 >{{todo.title}}</h5>
-    <p>{{todo.desc}}</p>
+    <h5 [ngClass]="{'strick':!todo.active}"  >{{todo.title}}</h5>
+    <p [ngClass]="{'strick':!todo.active}" >{{todo.desc}}</p>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="todo" (click)="onCheakboxClick(todo)">
+        <label class="form-check-label" for="todo{{i}}" > Done</label>
+    </div>
     <button class="btn btn-sm  btn-danger" (click)="onClick(todo)">Delete</button>
 </div>
